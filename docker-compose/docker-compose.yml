@@ -1,35 +1,26 @@
 version: "3.7"
 services:
   postgres:
-    image: postgres:11.2
-    #ports:
+    image: 
+    ports:
     networks:
-      - internal
     volumes:
-      - ./data:/var/lib/postgressql 
     environment:
-      - POSTGRES_PASSWORD=Docker101
 
   adminer:
-    image: adminer:latest
+    image: 
     ports: 
-      - 8080:8080
     environment: 
-      - ADMINER_DEFAULT_SERVER=postgres
     networks:
-      - web
-      - internal 
-  
-  
-networks:
-  internal:
-  web:
+ 
+
+
 
 # Je veux postgres 11.2
-# Je veux une interface d'administration pour postgres (Adminer)
+# Je veux une interface d'administration pour postgres (Adminer) configuré pour se connecter sur mon service postgres (ADMINER_DEFAULT_SERVER)
 #Je veux deux networks, un qui est réservé aux databases, et un qui est réservé aux acces depuis le web
 #je veux que mes deux containers puissent communiquer
-#je veux configurer postgres avec son user "postgres" par défaut, et le mot de passe Docker101
+#je veux configurer postgres avec son user "postgres" par défaut, et le mot de passe Docker101 (POSTGRES_PASSWORD)
 
   
 
